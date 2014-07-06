@@ -27,6 +27,8 @@ gem "therubyracer"
 gem "less-rails"
 gem 'twitter-bootstrap-rails'
 
+gem 'youtube_it'
+
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 

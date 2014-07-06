@@ -1,1 +1,46 @@
-<span
+<div class='row-fluid'>
+  <div class='span2 search-column'>
+    <div id='video-search'>
+      <%= form_tag '/welcome/search', id: 'query-form' do %>
+        <%= text_field_tag 'query', nil, placeholder: 'Search YouTube', class: 'input-medium' %>
+        <%= submit_tag 'Search', id: 'submit-query', class: 'btn' %>
+      <% end %>
+    </div>
+
+    <div id='video-list'>
+    </div>
+  </div>
+
+  <div class='span5 deck1'>
+    <div class='hero-unit'>
+    </div>
+  </div>
+
+  <div class='span5 deck2'>
+    <div class='hero-unit'>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $('#query-form').submit(function(event) {
+    
+    // Stop form from submitting normally
+    event.preventDefault();
+
+    // Get some values from elements on the page:
+    var $form = $( this ),
+      term = $form.find( "input[name='query']" ).val(),
+      url = $form.attr( "action" );
+   
+    // Send the data using post
+    var posting = $.ajax({
+      type: 'POST',
+      url: url,
+      data: {query: term}, 
+      dataType: 'script'
+    });
+    
+  });
+</script>
+
