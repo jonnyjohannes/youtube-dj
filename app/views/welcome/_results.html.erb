@@ -1,6 +1,11 @@
-<ul>
+<table class='table table-striped'>
   <% @videos.videos.each do |video| %>
-    <li><%= video.title %></li>
+    <tr>
+      <td>
+        <p><%= image_tag(video.thumbnails[1].url) %></p>
+        <p><%= video.title %></p>
+      </td>
+    </tr>
   <% end %>
-</ul>
+</table>
 
