@@ -11,18 +11,21 @@
     </div>
   </div>
 
-  <div class='span5 deck1'>
+  <div class='span5 deck1' id='deck1-droppable'>
     <div class='hero-unit'>
+      <p>Deck 1</p>
     </div>
   </div>
 
-  <div class='span5 deck2'>
+  <div class='span5 deck2' id='deck2-droppable'>
     <div class='hero-unit'>
+      <p>Deck 2</p>
     </div>
   </div>
 </div>
 
 <script type="text/javascript">
+$(document).ready(function() {
   $('#query-form').submit(function(event) {
     
     // Stop form from submitting normally
@@ -39,8 +42,34 @@
       url: url,
       data: {query: term}, 
       dataType: 'script'
+    }).done(function() {
+      initDragDrop();
     });
     
   });
+
+  function initDragDrop() {
+    $('.thumb-draggable').draggable({
+      containment: 'html',
+      helper: 'clone'
+    });
+    $('#deck1-droppable').droppable({
+      drop: function(event, ui) {
+        setDeck($(this), ui);
+      }
+    });
+    $('#deck2-droppable').droppable({
+      drop: function(event, ui) {
+        setDeck($(this), ui);
+      }
+    });
+  }
+
+  function setDeck(dropArea, ui) {
+    var draggableVideo = ui.draggable;
+    dropArea.html(draggableVideo.children('.embed_html').text());
+  }
+
+});
 </script>
 
