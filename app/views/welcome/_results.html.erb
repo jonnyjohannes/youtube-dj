@@ -1,10 +1,18 @@
 <table class='table table-striped'>
   <% @videos.videos.each do |video| %>
     <tr>
-      <td class='thumb-draggable'>
-        <p><%= image_tag(video.thumbnails[1].url) %></p>
-        <p><%= video.title %></p>
-        <p class='embed_html' style='display:none;'><%= video.embed_html5 %></p>
+      <td>
+        <div class='thumb-draggable'>
+          <p><%= image_tag(video.thumbnails[1].url) %></p>
+          <p><%= video.title %></p>
+          <p class='embed_html' style='display:none;'><%= video.embed_html5 %></p>
+        </div>
+        <p>
+          <div class='btn-group'>
+            <button class='add-to-deck1 btn'>Deck 1</button>
+            <button class='add-to-deck2 btn'>Deck 2</button>
+          </div>
+        <p>
       </td>
     </tr>
   <% end %>

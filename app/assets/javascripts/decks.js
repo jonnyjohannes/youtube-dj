@@ -17,9 +17,23 @@ $(document).ready(function() {
       dataType: 'script'
     }).done(function() {
       initDragDrop();
+      initClickAdd();
     });
     
   });
+
+  function initClickAdd() {
+    $('.add-to-deck1').on('click', function() {
+      var video = $(this).parents('td');
+      var deck = $('#deck1-droppable');
+      setDeck(deck, video); 
+    });  
+    $('.add-to-deck2').on('click', function() {
+      var video = $(this).parents('td');
+      var deck = $('#deck2-droppable');
+      setDeck(deck, video); 
+    });  
+  }
 
   function initDragDrop() {
     $('.thumb-draggable').draggable({
@@ -28,19 +42,18 @@ $(document).ready(function() {
     });
     $('#deck1-droppable').droppable({
       drop: function(event, ui) {
-        setDeck($(this), ui);
+        setDeck($(this), ui.draggable);
       }
     });
     $('#deck2-droppable').droppable({
       drop: function(event, ui) {
-        setDeck($(this), ui);
+        setDeck($(this), ui.draggable);
       }
     });
   }
-
-  function setDeck(dropArea, ui) {
-    var draggableVideo = ui.draggable;
-    dropArea.html(draggableVideo.children('.embed_html').text());
+  
+  function setDeck(deck, video) {
+    deck.html(video.find('.embed_html').text());
     $('iframe').each(function(index, elem) {
       elem.setAttribute('width','100%');
     });
