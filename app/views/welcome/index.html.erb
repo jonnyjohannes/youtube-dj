@@ -3,7 +3,7 @@
     <div id='video-search'>
       <%= form_tag '/welcome/search', id: 'query-form' do %>
         <%= text_field_tag 'query', nil, placeholder: 'Search YouTube', class: 'input-medium' %>
-        <%= submit_tag 'Search', id: 'submit-query', class: 'btn' %>
+        <%= submit_tag 'Go', id: 'submit-query', class: 'btn' %>
       <% end %>
     </div>
 
@@ -23,53 +23,4 @@
     </div>
   </div>
 </div>
-
-<script type="text/javascript">
-$(document).ready(function() {
-  $('#query-form').submit(function(event) {
-    
-    // Stop form from submitting normally
-    event.preventDefault();
-
-    // Get some values from elements on the page:
-    var $form = $( this ),
-      term = $form.find( "input[name='query']" ).val(),
-      url = $form.attr( "action" );
-   
-    // Send the data using post
-    var posting = $.ajax({
-      type: 'POST',
-      url: url,
-      data: {query: term}, 
-      dataType: 'script'
-    }).done(function() {
-      initDragDrop();
-    });
-    
-  });
-
-  function initDragDrop() {
-    $('.thumb-draggable').draggable({
-      containment: 'html',
-      helper: 'clone'
-    });
-    $('#deck1-droppable').droppable({
-      drop: function(event, ui) {
-        setDeck($(this), ui);
-      }
-    });
-    $('#deck2-droppable').droppable({
-      drop: function(event, ui) {
-        setDeck($(this), ui);
-      }
-    });
-  }
-
-  function setDeck(dropArea, ui) {
-    var draggableVideo = ui.draggable;
-    dropArea.html(draggableVideo.children('.embed_html').text());
-  }
-
-});
-</script>
 
