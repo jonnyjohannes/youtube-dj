@@ -5,7 +5,8 @@
         <div class='thumb-draggable'>
           <p><%= image_tag(video.thumbnails[1].url) %></p>
           <p><%= video.title %></p>
-          <p class='embed_html' style='display:none;'><%= video.embed_html5 %></p>
+          <p class='embed_html' style='display:none;'><%= embed_html(video) %></p>
+          <p class='video_id' style='display:none;'><%= video_id(video) %></p>
         </div>
         <p>
           <div class='btn-group'>

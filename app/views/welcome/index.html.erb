@@ -10,17 +10,19 @@
     <div id='video-list'>
     </div>
   </div>
+  
+  <div class='span10'>
+    <div class='row-fluid'>
+      <%= render 'deck', name: 'deck1' %>
+      <%= render 'deck', name: 'deck2' %>
+    </div>
 
-  <div class='span5 deck1' id='deck1-droppable'>
-    <div class='hero-unit'>
-      <p>Deck 1</p>
+    <div class='row-fluid'>
+      <div class='span6 offset3 hero-unit'>
+        <div id='fader'></div>
+      </div>
     </div>
   </div>
 
-  <div class='span5 deck2' id='deck2-droppable'>
-    <div class='hero-unit'>
-      <p>Deck 2</p>
-    </div>
-  </div>
 </div>
 
