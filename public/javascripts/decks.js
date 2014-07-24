@@ -13,11 +13,13 @@ $(document).ready(function() {
     var posting = $.ajax({
       type: 'POST',
       url: url,
-      data: {query: term}, 
-      dataType: 'script'
-    }).done(function() {
-      initDragDrop();
-      initClickAdd();
+      data: JSON.stringify({ query: term }), 
+      dataType: 'json',
+      contentType: 'application/json'
+    }).done(function(response) {
+      renderResults(JSON.stringify(response));
+      //initDragDrop();
+      //initClickAdd();
     });
     
   });
@@ -50,6 +52,10 @@ $(document).ready(function() {
         setDeck($(this), ui.draggable);
       }
     });
+  }
+
+  function renderResults(response) {
+    $('#video-list').empty().html(response);
   }
   
   function setDeck(deck, video) {

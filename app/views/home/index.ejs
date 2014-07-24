@@ -1,0 +1,75 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <meta content="authenticity_token" name="csrf-param" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="all" rel="stylesheet" />
+    <link href="/stylesheets/main.css" media="all" rel="stylesheet" />
+    <script src="http://code.jquery.com/jquery-2.1.1.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="/javascripts/decks.js"></script>
+    <script src="/javascripts/youtube-auth.js"></script>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/"><%= title %></a>
+        </div>
+      </div>
+    </div>
+
+    <div class='container'>
+
+      <div class='row'>
+        <div class='col-lg-3' id='video-search'>
+          <form accept-charset="UTF-8" action="/search" id="query-form" method="post">
+            <div class="input-group">
+              <input type="text" placeholder="Search YouTube" name="query" class="form-control">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="submit button">Go!</button>
+              </span>
+            </div><!-- /input-group -->
+          </form>
+        </div>
+
+        <div id='video-list'>
+        </div>
+
+      </div>
+
+      <div class='row'>
+        <div class='col-lg-12'>
+          <div class="col-lg-6 deck1" id="deck1-droppable">
+            <div class='jumbotron'>
+              <p>Deck 1</p>
+            </div>
+          </div>
+          <div class="col-lg-6 deck2" id="deck2-droppable">
+            <div class='jumbotron'>
+              <p>Deck 2</p>
+            </div>
+          </div>
+        </div>
+
+        <div class='row'>
+          <div class='col-lg-6 col-md-offset-3 jumbotron'>
+            <div id='fader'></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- .container -->
+
+  </body>
+
+</html>

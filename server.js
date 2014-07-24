@@ -8,7 +8,7 @@ var debug = require('debug')('youtube-dj');
 var  app = module.exports = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'app/views'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
@@ -17,7 +17,8 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-require('./controllers/home').controller(app);
+require('./app/controllers/home').controller(app);
+require('./app/controllers/search').controller(app);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
