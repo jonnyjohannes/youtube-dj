@@ -23,7 +23,8 @@
     "ejs": "~0.8.5",
     "serve-favicon": "*",
     "morgan": "*",
-    "cookie-parser": "*"
+    "cookie-parser": "*",
+    "youtube-api": "*"
   },
   "devDependencies": {
     "supervisor": "*",

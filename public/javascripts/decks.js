@@ -18,8 +18,8 @@ $(document).ready(function() {
       contentType: 'application/json'
     }).done(function(response) {
       renderResults(JSON.stringify(response));
-      //initDragDrop();
-      //initClickAdd();
+      initDragDrop();
+      initClickAdd();
     });
     
   });
@@ -55,7 +55,28 @@ $(document).ready(function() {
   }
 
   function renderResults(response) {
-    $('#video-list').empty().html(response);
+    var table = "<table class='table table-striped'>";
+    $.each($.parseJSON(response).videos, function(i, video) {
+      var video = video.snippet;
+      table += "<tr>";
+      table += "<td>";
+      table += "<div class='thumb-draggable'>";
+      table += "<p>" + "<img src='" + video.thumbnails.medium.url + "'>" + "</p>";
+      table += "<p>" + video.title + "</p>";
+      table += "<p class='embed_html' style='display:none;'>" + video.channelId + "</p>";
+      table += "<p class='video_id' style='display:none;'>" + video.channelId + "</p>";
+      table += "</div>";
+      table += "<p>";
+      table += "<div class='btn-group'>";
+      table += "<button class='add-to-deck1 btn'>Deck 1</button>"
+      table += "<button class='add-to-deck2 btn'>Deck 2</button>"
+      table += "</div>";
+      table += "<p>";
+      table += "</td>";
+      table += "</tr>";
+    });
+    table += "</table>";
+    $('#video-list').empty().html(table);
   }
   
   function setDeck(deck, video) {

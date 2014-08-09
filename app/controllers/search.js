@@ -1,11 +1,21 @@
 module.exports.controller = function(app) {
   return app.post('/search', function(req, res) {
+    var Youtube = require('youtube-api');
+
+    Youtube.authenticate({
+      type: 'key',
+      key: process.env.YOUTUBE_API_KEY 
+    });
+
     var query = req.body['query'];
-    var videos = 'hlllllllooooo';
-    var response = res.json({videos: videos});
-    console.log(response.data);
-    return response;
-    //return res.json({data: data});
+
+    Youtube.search.list({
+      'part': 'id, snippet',
+      'q': query,
+      'maxResults': 10
+    }, function (err, data) {
+      return res.json({videos: data.items});
+    });
   });
 };
 
