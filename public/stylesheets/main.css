@@ -2,3 +2,11 @@ body {
   padding-top: 65px;
 }
 
+#video-search {
+  padding-left: 0;
+}
+
+#video-list td {
+  text-align: center;
+}
+

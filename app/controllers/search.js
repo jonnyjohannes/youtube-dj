@@ -4,7 +4,8 @@ module.exports.controller = function(app) {
 
     Youtube.authenticate({
       type: 'key',
-      key: process.env.YOUTUBE_API_KEY 
+      //key: process.env.YOUTUBE_API_KEY 
+      key: 'AIzaSyDu0qPJoj0xXte8qegfXHI1GmjdY6DQlGM'
     });
 
     var query = req.body['query'];

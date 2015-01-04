@@ -7,10 +7,12 @@
     <meta content="authenticity_token" name="csrf-param" />
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="all" rel="stylesheet" />
     <link href="/stylesheets/main.css" media="all" rel="stylesheet" />
+    <link href="https://code.jquery.com/ui/1.10.3/themes/black-tie/jquery-ui.css" media="all" rel="stylesheet" />
     <script src="http://code.jquery.com/jquery-2.1.1.js"></script>
     <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="/javascripts/decks.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
@@ -36,7 +38,7 @@
             <div class="input-group">
               <input type="text" placeholder="Search YouTube" name="query" class="form-control">
               <span class="input-group-btn">
-                <button class="btn btn-default" type="submit button">Go!</button>
+                <button class="btn btn-default" type="submit button">Search</button>
               </span>
             </div><!-- /input-group -->
           </form>
@@ -60,11 +62,11 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <div class='row'>
-          <div class='col-lg-6 col-md-offset-3 jumbotron'>
-            <div id='fader'></div>
-          </div>
+      <div class='row'>
+        <div class='col-lg-6 col-md-offset-3 jumbotron' style='margin-top:20px;'>
+          <div id='fader'></div>
         </div>
       </div>
 
