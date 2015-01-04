@@ -1,0 +1,43 @@
+{
+  "name": "youtube-dj",
+  "version": "0.2.0-beta",
+  "description": "DJ'ing with YouTube videos",
+  "private": true,
+  "author": "Jonathan (Jonny) Johannes <jonny@jonnyjohannes.com>",
+  "license": "BSD-3-Clause",
+  "keywords": [
+    "node",
+    "youtube",
+    "dj"
+  ],
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git@heroku.com:youtube-dj.git"
+  },
+  "dependencies": {
+    "express": "4.6.1",
+    "mongoose": "3.8.x",
+    "express-session": "1.6.x",
+    "body-parser": "1.0.x",
+    "ejs": "~0.8.5",
+    "serve-favicon": "*",
+    "morgan": "*",
+    "cookie-parser": "*",
+    "youtube-api": "*"
+  },
+  "devDependencies": {
+    "supervisor": "*",
+    "debug": "~0.7.4",
+    "method-override": "*",
+    "express-generator": "*",
+    "mocha"     : "*",
+    "should"    : "*",
+    "supertest" : "*"
+  },
+  "scripts": {
+    "start": "./node_modules/.bin/supervisor server.js",
+    "test": "./node_modules/.bin/mocha -u tdd tests"
+  }
+}
+

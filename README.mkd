@@ -1,0 +1,12 @@
+YouTube DJ
+==========
+
+Installation
+------------
+
+  git clone
+
+  npm install
+
+  npm start
+
