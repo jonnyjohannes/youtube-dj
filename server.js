@@ -3,7 +3,7 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var debug = require('debug')('youtube-dj');
+//var debug = require('debug')('youtube-dj');
 
 var  app = module.exports = express();
 
@@ -53,6 +53,6 @@ app.use(function(err, req, res, next) {
 
 app.listen(process.env.PORT || 4000, function() {
   console.log('Express server listening on port ' + app.get('port'));
-  debug('Express server listening on port ' + app.get('port'));
+  //debug('Express server listening on port ' + app.get('port'));
 });
 
