@@ -102,16 +102,24 @@ $(document).ready(function() {
   }
 
   function setSlider() {
-    $('#fader').on('slide', function(event, ui) {
-      deck1 = document.getElementById('deck1-droppable-player');
-      deck2 = document.getElementById('deck2-droppable-player');
+    var deck1 = document.getElementById('deck1-droppable-player');
+    var deck2 = document.getElementById('deck2-droppable-player');
+    var fader = $('#fader');
 
-      slider_value = $('#fader').slider('value');
-
-      deck1.setVolume(100 - slider_value);
-      deck2.setVolume(slider_value);
-    });
+    if (deck1 != null && deck2 == null) {
+      fader.slider('value', 0);
+      deck1.setVolume(100);
+    } else if (deck1 == null && deck2 != null) {
+      fader.slider('value', 100);
+      deck2.setVolume(100);
+    } else {
+      $('#fader').on('slide', function(event, ui) {
+        slider_value = fader.slider('value');
+        deck1.setVolume(100 - slider_value);
+        deck2.setVolume(slider_value);
+      });
+      $('#fader').trigger('slide');
+    }
   }
-
 });
 
