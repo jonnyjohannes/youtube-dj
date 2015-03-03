@@ -4,7 +4,9 @@ YouTube DJ
 Installation
 ------------
 
-  git clone
+  git clone git@github.com:jonnyjohannes/youtube-dj.git
+
+  export YOUTUBE_API_KEY={YOUTUBE_API_KEY}
 
   npm install
 
