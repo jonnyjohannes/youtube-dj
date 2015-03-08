@@ -1,6 +1,6 @@
 $(document).ready(function() {
   $('#query-form').submit(function(event) {
-    
+
     // Stop form from submitting normally
     event.preventDefault();
 
@@ -8,12 +8,12 @@ $(document).ready(function() {
     var $form = $( this ),
       term = $form.find( 'input[name="query"]' ).val(),
       url = $form.attr( 'action' );
-   
+
     // Send the data using post
     var posting = $.ajax({
       type: 'POST',
       url: url,
-      data: JSON.stringify({ query: term }), 
+      data: JSON.stringify({ query: term }),
       dataType: 'json',
       contentType: 'application/json'
     }).done(function(response) {
@@ -22,20 +22,20 @@ $(document).ready(function() {
       initClickAdd();
       initFader();
     });
-    
+
   });
 
   function initClickAdd() {
     $('.add-to-deck1').on('click', function() {
       var video = $(this).parents('td');
       var deck = $('#deck1-droppable');
-      setDeck(deck, video); 
-    });  
+      setDeck(deck, video);
+    });
     $('.add-to-deck2').on('click', function() {
       var video = $(this).parents('td');
       var deck = $('#deck2-droppable');
-      setDeck(deck, video); 
-    });  
+      setDeck(deck, video);
+    });
   }
 
   function initDragDrop() {
@@ -87,15 +87,25 @@ $(document).ready(function() {
     table += "</table>";
     $('#video-list').empty().html(table);
   }
-  
+
   function setDeck(deck, video) {
 
     embed = "<div class='embed-responsive embed-responsive-16by9' id=a"+deck.attr('id')+"><div>";
     deck.html(embed);
 
     responsive_embed = $('#a'+deck.attr('id'));
-  
-    swfobject.embedSWF("http://www.youtube.com/v/"+video.find('.embed_html').text()+"?enablejsapi=1&playerapiid=ytplayer&version=3", 'a'+deck.attr('id'), responsive_embed.width(), responsive_embed.outerHeight(), "8", null, null, {allowScriptAccess: "always"}, {id: deck.attr('id')+"-player"});
+
+    swfobject.embedSWF(
+      "http://www.youtube.com/v/"+video.find('.embed_html').text()+"?enablejsapi=1&playerapiid=ytplayer&version=3",
+      'a'+deck.attr('id'),
+      responsive_embed.width(),
+      responsive_embed.outerHeight(),
+      "8",
+      null,
+      null,
+      {allowScriptAccess: "always",allowFullScreen:true},
+      {id: deck.attr('id')+"-player"}
+    );
 
     setSlider();
 
@@ -122,4 +132,3 @@ $(document).ready(function() {
     }
   }
 });
-
